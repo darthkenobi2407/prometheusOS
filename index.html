@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PrometheusOS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="menu-bar">
+    <nav class="menu-left" aria-label="Main menu">
+      <button class="brand-menu menu-trigger" data-menu="system" aria-label="PrometheusOS menu"><span class="brand-mark">P</span></button>
+      <span id="current-app-name" class="app-name" aria-live="polite"></span>
+      <button class="menu-trigger" data-menu="file">File</button>
+      <button class="menu-trigger" data-menu="edit">Edit</button>
+      <button class="menu-trigger" data-menu="view">View</button>
+      <button class="menu-trigger" data-menu="window">Window</button>
+      <button class="menu-trigger" data-menu="help">Help</button>
+    </nav>
+    <div class="menu-right"><span id="clock"></span></div>
+    <div id="menu-popovers" class="menu-popovers"></div>
+  </header>
+
+  <main class="desktop">
+    <nav class="desktop-icons" aria-label="Applications">
+      <button data-app="notes" aria-label="Open Notes"><span class="app-icon notes-icon"><span></span></span><span>Notes</span></button>
+      <button data-app="terminal" aria-label="Open Terminal"><span class="app-icon terminal-icon"><span>›_</span></span><span>Terminal</span></button>
+      <button data-app="about" aria-label="Open About"><span class="app-icon about-icon"><span>i</span></span><span>About</span></button>
+      <button data-app="website" aria-label="Open My Projects"><span class="app-icon website-icon"><span>↗</span></span><span>My Projects</span></button>
+      <button data-app="formula1" aria-label="Open Formula 1"><span class="app-icon f1-icon">F1</span><span>Formula1</span></button>
+    </nav>
+
+    <section id="windows" aria-live="polite"></section>
+
+    <nav class="dock" aria-label="Dock">
+      <button data-app="notes" title="Notes" aria-label="Open Notes"><span class="app-icon notes-icon"><span></span></span></button>
+      <button data-app="terminal" title="Terminal" aria-label="Open Terminal"><span class="app-icon terminal-icon"><span>›_</span></span></button>
+      <span class="dock-divider"></span>
+      <button data-app="about" title="About PrometheusOS" aria-label="Open About"><span class="app-icon about-icon"><span>i</span></span></button>
+      <button data-app="website" title="My Projects" aria-label="Open My Projects"><span class="app-icon website-icon"><span>↗</span></span></button>
+      <button data-app="formula1" title="Formula1" aria-label="Open Formula 1"><span class="app-icon f1-icon">F1</span></button>
+    </nav>
+  </main>
+
+  <section id="auth-screen" class="auth-screen" aria-live="polite">
+    <div class="auth-card">
+      <div class="auth-titlebar">
+        <div class="auth-window-controls" aria-label="Window controls">
+          <button class="auth-window-dot close" type="button" aria-label="Clear login form" title="Clear login form"></button>
+          <span class="auth-window-dot minimize" aria-hidden="true"></span>
+          <span class="auth-window-dot zoom" aria-hidden="true"></span>
+        </div>
+        <span class="auth-window-title" aria-hidden="true"></span>
+        <span class="auth-titlebar-spacer"></span>
+      </div>
+      <div class="auth-content">
+      <div class="auth-mark">P</div>
+      <h1 id="auth-title">Welcome</h1>
+      <p id="auth-copy">Create a local account to set up your desktop.</p>
+      <form id="auth-form">
+        <label for="auth-id">Account ID</label>
+        <input id="auth-id" name="accountId" autocomplete="username" minlength="3" maxlength="32" required>
+        <label for="auth-password">Password</label>
+        <input id="auth-password" name="password" type="password" autocomplete="new-password" minlength="8" required>
+        <p id="auth-error" class="auth-error" role="alert"></p>
+        <button id="auth-submit" type="submit">Create account</button>
+      </form>
+      <p class="auth-footnote">This account is stored in this browser on this device.</p>
+      </div>
+    </div>
+  </section>
+  <script src="script.js"></script>
+</body>
+</html>
